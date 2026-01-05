@@ -36,7 +36,7 @@ export const Navbar = () => {
             className="cursor-pointer"
           />
           <div className="hidden md:flex font-bold ml-[10px] text-gray-300">
-            Indrajeet
+            iamindra
           </div>
         </button>
 
