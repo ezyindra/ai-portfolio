@@ -21,7 +21,7 @@ export const Navbar = () => {
     <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001427] backdrop-blur-md z-50 px-10">
       {/* Navbar Container */}
       <div className="w-full h-full flex items-center justify-between m-auto px-[10px]">
-        
+
         {/* Logo + Name */}
         <button
           onClick={() => handleScroll("hero")}
@@ -41,13 +41,13 @@ export const Navbar = () => {
         </button>
 
         {/* Web Navbar */}
-        <div className="hidden md:flex w-[500px] h-full flex-row items-center justify-between md:mr-20">
-          <div className="flex items-center justify-between w-full h-auto border-[rgba(112,66,248,0.38)] bg-[rgba(3,0,20,0.37)] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
+        <div className="hidden md:flex w-[640px] h-full items-center md:mr-20">
+          <div className="flex items-center gap-8 w-full border border-[rgba(112,66,248,0.38)] bg-[rgba(3,0,20,0.37)] px-[28px] py-[10px] rounded-full text-gray-200">
             {NAV_LINKS.map((link) => (
               <button
                 key={link.title}
                 onClick={() => handleScroll(link.link.replace("#", ""))}
-                className="cursor-pointer hover:text-[rgb(112,66,248)] transition bg-transparent"
+                className="cursor-pointer whitespace-nowrap hover:text-[rgb(112,66,248)] transition bg-transparent"
               >
                 {link.title}
               </button>
@@ -81,14 +81,14 @@ export const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="absolute top-[65px] left-0 w-full bg-[#030014] p-5 flex flex-col items-center text-gray-300 md:hidden">
-          
+
           {/* Links */}
           <div className="flex flex-col items-center gap-4">
             {NAV_LINKS.map((link) => (
               <button
                 key={link.title}
                 onClick={() => handleScroll(link.link.replace("#", ""))}
-                className="cursor-pointer hover:text-[rgb(112,66,248)] transition text-center bg-transparent"
+                className="cursor-pointer whitespace-nowrap hover:text-[rgb(112,66,248)] transition bg-transparent"
               >
                 {link.title}
               </button>

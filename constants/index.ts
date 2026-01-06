@@ -7,6 +7,30 @@ import {
   RxLinkedinLogo,
 } from "react-icons/rx";
 
+export const CERTIFICATIONS = [
+  {
+    title: "Google Cloud – Data Engineering",
+    issuer: "Google Cloud",
+    year: "2024",
+    skills: "BigQuery • Dataflow • Cloud Architecture",
+    link: "https://www.credential.net/", // optional
+  },
+  {
+    title: "Generative AI Fundamentals",
+    issuer: "Google",
+    year: "2024",
+    skills: "LLMs • Prompt Engineering • Model APIs",
+    link: "",
+  },
+  {
+    title: "Machine Learning Specialization",
+    issuer: "Coursera / DeepLearning.AI",
+    year: "2023",
+    skills: "Supervised • Unsupervised • Neural Networks",
+    link: "",
+  },
+];
+
 export const SKILL_DATA = [
   {
     skill_name: "HTML",
@@ -339,6 +363,7 @@ export const FOOTER_DATA = [
   },
 ] as const;
 
+
 export const NAV_LINKS = [
   {
     title: "Home",
@@ -351,6 +376,10 @@ export const NAV_LINKS = [
   {
     title: "Projects",
     link: "#projects",
+  },
+  {
+    title: "Certifications",
+    link: "#certifications"
   },
   {
     title: "About me",
