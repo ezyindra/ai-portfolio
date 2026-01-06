@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useEffect, useState } from "react";
 
@@ -43,8 +43,10 @@ const FALLBACK_QUESTIONS: Question[] = [
 
 export default function EncryptionModal({
   trigger,
+  videoRef,
 }: {
   trigger: React.ReactNode;
+  videoRef: React.RefObject<HTMLVideoElement | null>;
 }) {
   const [open, setOpen] = useState(false);
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -54,20 +56,22 @@ export default function EncryptionModal({
   const [unlocked, setUnlocked] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // 🔒 Prevent background repaint while modal is open (mobile stability)
+  /* 🔴 CRITICAL FIX: pause video + lock scroll when modal opens */
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
+      videoRef.current?.pause();
     } else {
       document.body.style.overflow = "";
+      videoRef.current?.play().catch(() => {});
     }
 
     return () => {
       document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [open, videoRef]);
 
-  // 🔁 Fetch fresh MCQs every time modal opens
+  /* Fetch fresh questions */
   useEffect(() => {
     if (!open) return;
 
@@ -121,12 +125,12 @@ export default function EncryptionModal({
 
   return (
     <>
-      {/* 🔑 CLICKABLE TRIGGER */}
+      {/* Trigger */}
       <div onClick={() => setOpen(true)}>
         {trigger}
       </div>
 
-      {/* 🔐 MODAL */}
+      {/* Modal */}
       {open && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center px-4">
           <div className="max-w-lg w-full bg-[#030014] border border-purple-500/30 rounded-xl p-6">
@@ -142,10 +146,7 @@ export default function EncryptionModal({
                 </h3>
 
                 <p className="mb-4 text-sm text-white/60">
-                  Answer{" "}
-                  <span className="text-purple-400 font-medium">
-                    2 of 3
-                  </span>{" "}
+                  Answer <span className="text-purple-400 font-medium">2 of 3</span>{" "}
                   security checks to unlock this encrypted vault.
                 </p>
 
@@ -172,9 +173,6 @@ export default function EncryptionModal({
                 <h3 className="text-xl font-bold text-green-400 mb-4">
                   Access Granted
                 </h3>
-                <p className="text-white/70 mb-6">
-                  You’ve unlocked this encrypted section.
-                </p>
                 <button
                   onClick={() => setOpen(false)}
                   className="px-6 py-2 bg-green-500/20 border border-green-400 rounded-md hover:bg-green-500/30 transition"
@@ -187,9 +185,6 @@ export default function EncryptionModal({
                 <h3 className="text-xl font-bold text-red-400 mb-4">
                   Access Denied
                 </h3>
-                <p className="text-white/70 mb-6">
-                  Insufficient clearance. Try again.
-                </p>
                 <button
                   onClick={reset}
                   className="px-6 py-2 bg-red-500/20 border border-red-400 rounded-md hover:bg-red-500/30 transition"

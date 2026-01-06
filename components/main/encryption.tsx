@@ -2,16 +2,20 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRef } from "react";
 
 import { slideInFromTop } from "@/lib/motion";
 import EncryptionModal from "@/components/sub/encryption-modal";
 
 export const Encryption = () => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
   return (
     <section className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden">
 
-      {/* Background video (mobile-safe, same look) */}
+      {/* 🎥 Background video */}
       <video
+        ref={videoRef}
         loop
         muted
         autoPlay
@@ -41,10 +45,10 @@ export const Encryption = () => {
         </motion.div>
       </div>
 
-      {/* 🔒 CENTER LOCK (CLICKABLE + TRUE CENTER) */}
+      {/* 🔒 CENTER LOCK */}
       <div className="relative z-20 flex flex-col items-center justify-center">
-
         <EncryptionModal
+          videoRef={videoRef}
           trigger={
             <div className="cursor-pointer group flex flex-col items-center transform-gpu">
               <Image
@@ -69,10 +73,9 @@ export const Encryption = () => {
             </div>
           }
         />
-
       </div>
 
-      {/* Footer text */}
+      {/* Footer */}
       <div className="absolute bottom-8 w-full flex justify-center z-10 px-4">
         <div className="cursive text-[16px] md:text-[18px] font-medium text-gray-300 text-center">
           Secure your data with end-to-end encryption.
