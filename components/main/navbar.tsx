@@ -28,10 +28,10 @@ export const Navbar = () => {
           className="flex items-center"
         >
           <Image
-            src="/logo.png"
+            src="/indra.png"
             alt="Logo"
-            width={70}
-            height={70}
+            width={36}
+            height={36}
             draggable={false}
             className="cursor-pointer"
           />

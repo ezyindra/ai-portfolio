@@ -29,7 +29,7 @@ const HeroContent = ({ onViewWork }: HeroContentProps) => {
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[13px]">
-            Engineering machine intelligence for real-world applications.
+            Engineering intelligent systems for real-world impact.
           </h1>
         </motion.div>
 
@@ -40,9 +40,9 @@ const HeroContent = ({ onViewWork }: HeroContentProps) => {
           <span>
             AI & Machine Learning Engineer{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              Data-Driven Systems
+              Engineering Intelligent
             </span>{" "}
-            Scalable ML
+            3D Web Systems
           </span>
         </motion.div>
 
@@ -50,10 +50,7 @@ const HeroContent = ({ onViewWork }: HeroContentProps) => {
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-5 max-w-[600px]"
         >
-          I&apos;m an AI/ML engineer focused on designing, training, and deploying
-          intelligent systems that solve practical problems. I work at the
-          intersection of machine learning, data engineering, and modern software
-          development to build scalable, production-ready solutions.
+          I&apos;m engineer immersive 3D web experiences and integrate AI to build intelligent, real-world solutions. My work combines machine learning, modern web technologies, and system design to deliver scalable, production-ready applications.
         </motion.p>
 
         <motion.button
