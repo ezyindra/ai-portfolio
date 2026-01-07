@@ -9,27 +9,48 @@ import {
 
 export const CERTIFICATIONS = [
   {
-    title: "Google Cloud – Data Engineering",
-    issuer: "Google Cloud",
-    year: "2024",
-    skills: "BigQuery • Dataflow • Cloud Architecture",
-    link: "https://www.credential.net/", // optional
+    title: "Introduction to Prompt Engineering with GitHub Copilot",
+    issuer: "Microsoft · Simplilearn SkillUp",
+    skills: "Prompt Engineering · AI-assisted Development · GitHub Copilot",
+    year: "2025",
+    image: "/certificates/intro to prompt eng.png",
+    file: "/certificates/prompt-engineering-github-copilot.pdf",
   },
   {
-    title: "Generative AI Fundamentals",
-    issuer: "Google",
-    year: "2024",
-    skills: "LLMs • Prompt Engineering • Model APIs",
-    link: "",
+    title: "Introduction to Generative AI",
+    issuer: "Google Cloud · Simplilearn SkillUp",
+    skills: "Generative AI · LLM Fundamentals · AI Concepts",
+    year: "2025",
+    image: "/certificates/intro to gen ai.png",
+    file: "/certificates/introduction-to-generative-ai.pdf",
   },
   {
-    title: "Machine Learning Specialization",
-    issuer: "Coursera / DeepLearning.AI",
-    year: "2023",
-    skills: "Supervised • Unsupervised • Neural Networks",
-    link: "",
+    title: "Data Analytics with Generative AI",
+    issuer: "Simplilearn SkillUp",
+    skills: "Data Analytics · Generative AI · AI-driven Insights",
+    year: "2025",
+    image: "/certificates/data ana with gen ai.png",
+    file: "/certificates/data-analytics-with-generative-ai.pdf",
+  },
+  {
+    title: "Data Analytics Job Simulation",
+    issuer: "Deloitte (via Forage)",
+    skills: "Data Analysis · Forensic Technology · Real-world Simulation",
+    year: "2025",
+    image: "/certificates/deloite.png",
+    file: "/certificates/deloitte-data-analytics-job-simulation.pdf",
+  },
+  {
+    title: "Introduction to Data Science",
+    issuer: "Cisco Networking Academy",
+    skills: "Data Science · Analytics · Foundations",
+    year: "2025",
+    image: "/certificates/intro to data sci.png",
+    file: "/certificates/Introduction_to_Data_Science_certificate_indrajeetgangawane08-gmail-com_849dc119-8d43-436c-bb6a-b920b03c55a8.pdf",
   },
 ];
+
+
 
 export const SKILL_DATA = [
   {
@@ -312,7 +333,7 @@ export const FOOTER_DATA = [
       {
         name: "GitHub",
         icon: RxGithubLogo,
-        link: "https://github.com",
+        link: "https://github.com/",
       },
       {
         name: "Discord",
@@ -327,7 +348,7 @@ export const FOOTER_DATA = [
       {
         name: "Instagram",
         icon: RxInstagramLogo,
-        link: "https://instagram.com",
+        link: "https://www.instagram.com/ezyindra_/",
       },
       {
         name: "Twitter",
@@ -337,7 +358,7 @@ export const FOOTER_DATA = [
       {
         name: "Linkedin",
         icon: RxLinkedinLogo,
-        link: "https://linkedin.com",
+        link: "https://www.linkedin.com/in/indra0/",
       },
     ],
   },

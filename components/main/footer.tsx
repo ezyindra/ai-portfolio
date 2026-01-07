@@ -1,38 +1,56 @@
-import Link from "next/link";
+"use client";
 
-import { FOOTER_DATA } from "@/constants";
+import Link from "next/link";
+import { Github, Instagram, Linkedin } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <div className="w-full h-full bg-transparent text-gray-200 shadow-lg p-[15px]">
-      <div className="w-full flex flex-col items-center justify-center m-auto">
-        <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
-          {FOOTER_DATA.map((column) => (
-            <div
-              key={column.title}
-              className="min-w-[200px] h-auto flex flex-col items-center justify-start"
-            >
-              <h3 className="font-bold text-[16px]">{column.title}</h3>
-              {column.data.map(({ icon: Icon, name, link }) => (
-                <Link
-                  key={`${column.title}-${name}`}
-                  href={link}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="flex flex-row items-center my-[15px]"
-                >
-                  {Icon && <Icon />}
-                  <span className="text-[15px] ml-[6px]">{name}</span>
-                </Link>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        <div className="mb-[20px] text-[15px] text-center">
-          &copy; Indrajeet Gangawane {new Date().getFullYear()} Inc. All rights reserved.
-        </div>
+    <footer className="relative w-full py-16 text-white/70">
+      
+      {/* Quote */}
+      <div className="text-center mb-10">
+        <p className="cursive text-sm text-white/60">
+        
+        </p>
       </div>
-    </div>
+
+      {/* Social Icons */}
+      <div className="flex justify-center items-center gap-8 mb-10">
+        <Link
+          href="https://www.instagram.com/ezyindra_/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="transition-all duration-200 hover:text-white hover:scale-110"
+        >
+          <Instagram size={22} />
+        </Link>
+
+        <Link
+          href="https://www.linkedin.com/in/indra0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="transition-all duration-200 hover:text-white hover:scale-110"
+        >
+          <Linkedin size={22} />
+        </Link>
+
+        <Link
+          href="https://github.com/ezyindra"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          className="transition-all duration-200 hover:text-white hover:scale-110"
+        >
+          <Github size={22} />
+        </Link>
+      </div>
+
+      {/* Copyright */}
+      <div className="text-center text-xs text-white/40">
+        © Indrajeet Gangawane {new Date().getFullYear()}. All rights reserved.
+      </div>
+    </footer>
   );
 };

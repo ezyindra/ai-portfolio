@@ -66,3 +66,18 @@
 html {
   scroll-behavior: smooth;
 }
+@keyframes border {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.animate-border {
+  animation: border 2.5s linear infinite;
+}
+
+/* Optional: disable animation on touch devices */
+@media (hover: none) {
+  .animate-border {
+    animation: none;
+  }
+}

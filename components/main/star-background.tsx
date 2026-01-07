@@ -53,7 +53,8 @@ export function StarsCanvas() {
   if (isMobile) return null;
 
   return (
-    <div className="w-full h-full fixed inset-0 -z-10 pointer-events-none">
+   <div className="w-full h-auto fixed inset-0 -z-10 pointer-events-none">
+
       <Canvas
         camera={{ position: [0, 0, 1] }}
         dpr={[1, 1.5]} // mobile-safe DPI
