@@ -67,8 +67,8 @@
   ],
   "dependencies": {
     "@heroicons/react": "^2.1.1",
-    "@react-three/drei": "^9.93.0",
-    "@react-three/fiber": "^8.15.13",
+    "@react-three/drei": "^9.88.0",
+    "@react-three/fiber": "^8.15.11",
     "clsx": "^2.1.0",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^10.18.0",
@@ -79,7 +79,8 @@
     "react-icons": "^5.0.1",
     "react-intersection-observer": "^9.5.3",
     "tailwind-merge": "^2.2.0",
-    "three": "^0.160.0"
+    "three": "^0.160.0",
+    "three-mesh-bvh": "^0.6.8"
   },
   "devDependencies": {
     "@types/node": "^20",

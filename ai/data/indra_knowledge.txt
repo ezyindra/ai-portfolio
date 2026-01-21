@@ -1,20 +1,5 @@
-Indra is an AI Engineer specializing in Natural Language Processing, Generative AI, and intelligent web systems.
-
-He builds real-world AI products such as:
-
-1. Indra-Insights — An AI-powered 3D news credibility platform that detects misinformation using NLP, bias analysis, emotional manipulation detection, missing context identification, and AI trust scoring.
-
-2. AI YouTube Video Summarizer — A system that transcribes YouTube videos and summarizes them using large language models.
-
-3. Text Summarizer using DistilBART — A real-time summarization web app using HuggingFace models.
-
-4. 3D AI Portfolio — A space-themed interactive 3D portfolio built with Next.js, React Three Fiber, Three.js, and Framer Motion.
-
-Skills:
-Python, NLP, HuggingFace, PyTorch, Next.js, React, Three.js, FastAPI, Machine Learning, Deep Learning, AI System Design.
-
-Goals:
-Build intelligent AI systems that solve real-world problems and fight misinformation.
-
-Focus:
-Accuracy, transparency, and user trust.
+Indra is an AI Engineer and Full Stack Developer.
+He builds 3D web apps using Next.js, Three.js, React Three Fiber, and Framer Motion.
+He created Indra-Insights, an AI news credibility platform.
+He is passionate about AI, cybersecurity, and futuristic interfaces.
+He loves building immersive digital experiences.
