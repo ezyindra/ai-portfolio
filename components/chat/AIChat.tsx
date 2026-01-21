@@ -11,43 +11,43 @@ export const AIChat = () => {
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState<ChatMessage[]>([]);
   const [typing, setTyping] = useState(false);
-  const [error, setError] = useState("");
 
   const typeText = async (text: string) => {
     let current = "";
     for (let char of text) {
       current += char;
-      setChat((prev) => [
-        ...prev.slice(0, -1),
-        { role: "ai", text: current },
-      ]);
+      setChat((prev) => [...prev.slice(0, -1), { role: "ai", text: current }]);
       await new Promise((r) => setTimeout(r, 15));
     }
     setTyping(false);
   };
 
   const sendMessage = async () => {
-    if (!message.trim()) return;
+    if (!message.trim() || typing) return;
 
-    setChat((prev) => [...prev, { role: "user", text: message }]);
+    const userMessage = message;
     setMessage("");
+
+    setChat((prev) => [...prev, { role: "user", text: userMessage }]);
     setTyping(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
-      });
+      const res = await fetch("/api/chat", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ message }),
+});
+
+
 
       if (!res.ok) throw new Error("Server offline");
 
       const data = await res.json();
 
       setChat((prev) => [...prev, { role: "ai", text: "" }]);
-      typeText(data.reply);
+      await typeText(data.reply);
 
-    } catch (err) {
+    } catch {
       setTyping(false);
       setChat((prev) => [
         ...prev,
@@ -55,7 +55,6 @@ export const AIChat = () => {
       ]);
     }
   };
-
 
   return (
     <div className="w-full max-w-3xl mx-auto bg-black/60 backdrop-blur-xl border border-purple-500/30 rounded-2xl p-6 shadow-xl">
@@ -67,10 +66,11 @@ export const AIChat = () => {
         {chat.map((msg, i) => (
           <div
             key={i}
-            className={`p-3 rounded-xl max-w-[80%] ${msg.role === "user"
+            className={`p-3 rounded-xl max-w-[80%] ${
+              msg.role === "user"
                 ? "ml-auto bg-purple-600 text-white"
                 : "mr-auto bg-gray-800 text-gray-200"
-              }`}
+            }`}
           >
             {msg.text}
           </div>
@@ -82,10 +82,6 @@ export const AIChat = () => {
           </div>
         )}
       </div>
-
-      {error && (
-        <div className="text-red-400 text-sm mb-2 text-center">{error}</div>
-      )}
 
       <div className="flex gap-2">
         <input

@@ -31,15 +31,16 @@ export const AIUnlockScreen = () => {
       animate={{ opacity: 1 }}
     >
       <motion.h1
-        className="text-4xl mb-4 text-purple-400"
-        initial={{ y: -30 }}
-        animate={{ y: 0 }}
+        className="text-4xl mb-4 text-purple-400 font-bold"
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
       >
-        Welcome to Indra AI
+        Welcome to Indra AI Vault
       </motion.h1>
 
-      <p className="text-white/70 mb-8">
-        Your personal assistant. Ask me anything about Indra.
+      <p className="text-white/70 mb-8 text-center max-w-xl">
+        You have successfully decrypted the vault.  
+        This is Indra’s personal AI assistant — ask anything about him.
       </p>
 
       <AIChat />

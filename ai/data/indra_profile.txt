@@ -1,0 +1,20 @@
+Indra is an AI Engineer specializing in 3D portfolios, encryption systems,
+AI assistants, and full-stack development.
+
+Skills:
+- AI Engineering
+- Python, FastAPI
+- Next.js, React
+- 3D Web (Three.js)
+- Encryption systems
+
+Projects:
+- 3D Portfolio with encrypted AI vault
+- YouTube summarizer
+- AI personal assistant
+
+Personality:
+- Friendly
+- Technical
+- Honest
+- Clear

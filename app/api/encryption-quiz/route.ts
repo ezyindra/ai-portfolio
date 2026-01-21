@@ -18,14 +18,11 @@ export async function GET() {
         { error: "OpenRouter API key missing" },
         {
           status: 500,
-          headers: {
-            "Cache-Control": "no-store, no-cache, must-revalidate",
-          },
+          headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
         }
       );
     }
 
-    // 🔑 Add entropy so the model never repeats
     const entropy = crypto.randomUUID();
 
     const prompt = `
@@ -67,18 +64,12 @@ Request ID: ${entropy}
         },
         body: JSON.stringify({
           model: "openai/gpt-4o-mini",
-          temperature: 1.1,          // 🔥 higher randomness
+          temperature: 1.1,
           top_p: 0.95,
           max_tokens: 600,
           messages: [
-            {
-              role: "system",
-              content: "You ONLY return valid JSON. No explanations.",
-            },
-            {
-              role: "user",
-              content: prompt,
-            },
+            { role: "system", content: "You ONLY return valid JSON. No explanations." },
+            { role: "user", content: prompt },
           ],
         }),
       }
@@ -87,61 +78,43 @@ Request ID: ${entropy}
     const data = await response.json();
     const content = data?.choices?.[0]?.message?.content;
 
-    if (!content) {
-      throw new Error("Invalid AI response");
-    }
+    if (!content) throw new Error("Invalid AI response");
 
     const questions: MCQ[] = JSON.parse(content);
+
+    if (!Array.isArray(questions) || questions.length !== 3) {
+      throw new Error("Invalid question format");
+    }
 
     return NextResponse.json(
       { questions },
       {
-        headers: {
-          "Cache-Control": "no-store, no-cache, must-revalidate",
-        },
+        headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
       }
     );
   } catch (error) {
-    // ✅ Safe fallback (still uncached)
     return NextResponse.json(
       {
         questions: [
           {
             question: "What security property ensures data is not altered in transit?",
-            options: [
-              "Availability",
-              "Integrity",
-              "Latency",
-              "Redundancy",
-            ],
+            options: ["Availability", "Integrity", "Latency", "Redundancy"],
             correctIndex: 1,
           },
           {
             question: "Which mechanism is commonly used to verify server identity?",
-            options: [
-              "IP whitelisting",
-              "Digital certificates",
-              "Symmetric keys",
-              "Hash tables",
-            ],
+            options: ["IP whitelisting", "Digital certificates", "Symmetric keys", "Hash tables"],
             correctIndex: 1,
           },
           {
             question: "What does end-to-end encryption primarily prevent?",
-            options: [
-              "Packet loss",
-              "Unauthorized interception",
-              "Slow networks",
-              "Server downtime",
-            ],
+            options: ["Packet loss", "Unauthorized interception", "Slow networks", "Server downtime"],
             correctIndex: 1,
           },
         ],
       },
       {
-        headers: {
-          "Cache-Control": "no-store, no-cache, must-revalidate",
-        },
+        headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
       }
     );
   }
